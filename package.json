@@ -6,6 +6,7 @@
   "author": "julia-kocik <74269572+julia-kocik@users.noreply.github.com>",
   "license": "MIT",
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^4.18.1",
     "uuid": "^8.3.2"
   }
