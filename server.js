@@ -20,7 +20,8 @@ app.get('/testimonials/random', (req, res) => {
 });
 
 app.get('/testimonials/:id', (req, res) => {
-    res.json(db.find(elem => elem.id === req.params.id))
+    db.find(elem => elem.id == req.params.id)
+    res.json(db)
 });
 
 app.post('/testimonials/', (req, res) => {
@@ -29,7 +30,7 @@ app.post('/testimonials/', (req, res) => {
 });
 
 app.put('/testimonials/:id', (req, res) => {
-    const id = db.find(elem => elem.id === req.params.id);
+    const id = db.find(elem => elem.id == req.params.id);
     if(!id) {
         res.json({message: "NOT OK"});
     } else {
@@ -40,7 +41,8 @@ app.put('/testimonials/:id', (req, res) => {
 });
 
 app.delete('/testimonials/:id', (req, res) => {
-    db.filter(elem => elem.id === req.params.id);
+    const index = db.findIndex(elem => elem.id != req.params.id);
+    db.splice(index, 1)
     res.json(db);
 });
 
